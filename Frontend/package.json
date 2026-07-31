@@ -1,0 +1,16 @@
+{
+  "name": "rakshanet-monorepo",
+  "version": "1.0.0",
+  "description": "Unified RakshaNet Emergency & Health Platform (Frontend + Backend)",
+  "private": true,
+  "scripts": {
+    "dev": "npx concurrently -k -n \"BACKEND,FRONTEND\" -c \"magenta.bold,cyan.bold\" \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:backend": "cd rakshanet_backend && python3 -m uvicorn main:app --reload --host 127.0.0.1 --port 8000",
+    "dev:frontend": "cd rakshanet_frontend && npx vite --host 127.0.0.1",
+    "install:all": "npm install && cd rakshanet_frontend && npm install",
+    "build:frontend": "cd rakshanet_frontend && npm run build"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
