@@ -1,0 +1,136 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 40% 98%;
+    --foreground: 218 25% 18%;
+    --radius: 20px;
+  }
+
+  * {
+    @apply border-line;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-surface-muted text-ink-primary font-sans antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  ::selection {
+    @apply bg-primary-100 text-primary-700;
+  }
+
+  /* Visible keyboard focus everywhere */
+  :focus-visible {
+    outline: 2px solid #1565c0;
+    outline-offset: 2px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+  }
+}
+
+@layer components {
+  .section-pad {
+    @apply px-6 md:px-10 lg:px-16;
+  }
+
+  .card-surface {
+    @apply bg-surface rounded-2xl border border-line shadow-soft transition-colors duration-200;
+  }
+
+  .glass-nav {
+    @apply bg-white/80 backdrop-blur-md border-b border-line transition-colors duration-200;
+  }
+}
+
+/* Global Dark Mode Overrides */
+html.dark {
+  color-scheme: dark;
+}
+
+html.dark body {
+  background-color: #090d16;
+  color: #f1f5f9;
+}
+
+html.dark .card-surface {
+  background-color: #0f172a;
+  border-color: #1e293b;
+  color: #f8fafc;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+html.dark .glass-nav,
+html.dark header {
+  background-color: rgba(15, 23, 42, 0.85);
+  border-color: #1e293b;
+}
+
+html.dark sidebar,
+html.dark aside {
+  background-color: #0b1120;
+  border-color: #1e293b;
+}
+
+html.dark .bg-surface-muted {
+  background-color: #1e293b;
+}
+
+html.dark .bg-surface {
+  background-color: #0f172a;
+}
+
+html.dark .text-ink-primary {
+  color: #f8fafc;
+}
+
+html.dark .text-ink-secondary {
+  color: #94a3b8;
+}
+
+html.dark .border-line {
+  border-color: #1e293b;
+}
+
+html.dark input,
+html.dark select,
+html.dark textarea {
+  background-color: #1e293b;
+  color: #f8fafc;
+  border-color: #334155;
+}
+
+html.dark ::-webkit-scrollbar-thumb {
+  background: #334155;
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
