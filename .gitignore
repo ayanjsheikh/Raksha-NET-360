@@ -1,0 +1,11 @@
+# Dependencies
+node_modules/
+
+# Production build
+dist/
+
+# TypeScript cache
+*.tsbuildinfo
+
+# macOS system files (if applicable)
+.DS_Store
